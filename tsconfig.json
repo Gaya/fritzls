@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "lib": ["ES2015", "dom"],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true
+  }
+}
