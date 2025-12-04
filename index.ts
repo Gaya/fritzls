@@ -19,6 +19,11 @@ async function execute() {
     headers: nameAuth,
   });
   const namecomJson = await namecom.json();
+
+  if (!namecomJson.records) {
+    throw new Error('Name.com auth failed');
+  }
+
   const results = await Promise.all(namecomJson.records.map((record: { answer: string; id: string; type: string; }) => {
     if (ip !== record.answer) {
       return fetch(`https://api.name.com/core/v1/domains/${DOMAIN_EXTERNAL}/records/${record.id}`, {
